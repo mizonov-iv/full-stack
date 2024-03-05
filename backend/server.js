@@ -1,3 +1,4 @@
+const mongoose = require("mongoose")
 const express = require("express")
 const cors = require("cors")
 const {json} = require("express");
@@ -5,6 +6,9 @@ const {json} = require("express");
 const server = express()
 server.use(cors())
 server.use(json())
+
+mongoose.connect(import.meta.env.VITE_DATABASE_LOCAL, {}).then(() => console.log("DB connection successful"))
+
 const PORT = 3000
 
 const mockData = [
